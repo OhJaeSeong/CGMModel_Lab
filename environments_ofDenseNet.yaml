@@ -1,0 +1,25 @@
+densenet_model:
+  config_file: "model_property/densenet121_cfg.json"
+  model_weight_file: "model_property/densenet121.pth"
+  weight_file: "model_property/densenet121.pth"
+  classifier_weight_file: "" # model_property/classifier_pth_set/classifier_5epoch_0step_94.pth
+  save classifier_file_name : "model_property/classifier_pth_set/classifier"
+  labels: "model_property/customed_class_index.json"
+
+address_book:
+  train_address: "dataset/train"
+  val_address: "dataset/val"
+  origin_address: "./dataset/origin/" # crawlinged original image address(trainer not use)
+  excel_record_address: "output/buster_record/record_accuracy" # save address address to csv file
+  heatmap_address: "output/buster_record/heatmap" # save address to heatmap image
+
+user_setting:
+  learning_rate: 0.001  # desired learning rate
+  batch_size: 8  # desired batch size
+  step: 50 # after minimum epoch to save, How many steps do you want to save it?
+  epoch: 5  # How many times are you going to repeat it?
+  validation_term: 2  # When you validate model(by epoch count)
+  reduceLR_term: 5  # When you reduce learning rate(by epoch count)
+  minimum_demand_accuracy: 75 # minimum demand accuracy for save
+  minEpoch_toSave: 2  #  minimum epoch size for storage to take place
+  # 1step= data count amount in batch_size ex) 100step = (batchsize X 100)data learn
